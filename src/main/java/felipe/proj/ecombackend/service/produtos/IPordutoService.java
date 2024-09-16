@@ -1,13 +1,15 @@
 package felipe.proj.ecombackend.service.produtos;
 
 import felipe.proj.ecombackend.model.Produto;
+import felipe.proj.ecombackend.request.AddProdutoRequest;
+import felipe.proj.ecombackend.request.UpdateProdutoRequest;
 
 import java.util.List;
 
 public interface IPordutoService {
-    Produto addProduto(Produto produto);
+    Produto addProduto(AddProdutoRequest produto);
     Produto getProdutoById(Long id);
-    void updateProduto(Produto produto);
+    Produto updateProduto(UpdateProdutoRequest produto, Long ProdutoId);
     void deleteProduto(Long id);
     List<Produto> getAllProdutos();
     List<Produto> getProdutoByNome(String nome);

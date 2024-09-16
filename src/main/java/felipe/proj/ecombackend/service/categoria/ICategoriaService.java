@@ -10,6 +10,6 @@ public interface ICategoriaService {
     Categoria updateCategoria(Categoria categoria,Long id);
     void deleteCategoriaById(Long id);
     Categoria getCategoriaById(Long id);
-    List<Categoria> getCategoriaByNome(String nome);
+    Categoria getCategoriaByNome(String nome);
     List<Categoria> getAllCategorias();
 }

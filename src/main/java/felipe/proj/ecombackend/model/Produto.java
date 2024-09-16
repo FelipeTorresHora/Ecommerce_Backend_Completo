@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Produto {
 
@@ -27,4 +26,13 @@ public class Produto {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
+
+    public Produto(String nome, String marca, BigDecimal preco, int inventario, String descricao, Categoria categoria) {
+        this.nome = nome;
+        this.marca = marca;
+        this.preco = preco;
+        this.inventario = inventario;
+        this.descricao = descricao;
+        this.categoria = categoria;
+    }
 }

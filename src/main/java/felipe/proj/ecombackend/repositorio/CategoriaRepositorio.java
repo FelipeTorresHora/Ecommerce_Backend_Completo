@@ -7,5 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CategoriaRepositorio extends JpaRepository<Categoria, Long> {
-    List<Categoria> findByNome(String nome);
+    Categoria findByNome(String nome);
+
+    boolean existeByNome(String name);
 }
