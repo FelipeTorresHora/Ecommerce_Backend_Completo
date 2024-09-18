@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class ProdutoService implements IPordutoService {
+public class ProdutoService implements IProdutoService {
 
     private final CategoriaRepositorio categoriaRepositorio;
     private final ProdutoRepositorio produtoRepositorio;
@@ -45,12 +45,12 @@ public class ProdutoService implements IPordutoService {
     @Override
     public Produto updateProduto(UpdateProdutoRequest request, Long produtoId) {
         return produtoRepositorio.findById(produtoId)
-                .map(produtoExistente -> updateProdutoExistente(produtoExistente, request))
+                .map(produtoExistente -> upprodutoExistente(produtoExistente, request))
                 .map(produtoRepositorio :: save)
                 .orElseThrow(()-> new ProdutoNaoEncontrado("Produto não encontrado!!"));
     }
 
-    private Produto updateProdutoExistente(Produto produtoExistente, UpdateProdutoRequest request) {
+    private Produto upprodutoExistente(Produto produtoExistente, UpdateProdutoRequest request) {
         produtoExistente.setNome(request.getNome());
         produtoExistente.setMarca(request.getMarca());
         produtoExistente.setPreco(request.getPreco());
@@ -88,7 +88,7 @@ public class ProdutoService implements IPordutoService {
 
     @Override
     public List<Produto> getProdutoByCategoria(String categoria) {
-        return produtoRepositorio.findByCategoria(categoria);
+        return produtoRepositorio.findByCategoriaNome(categoria);
     }
 
     @Override

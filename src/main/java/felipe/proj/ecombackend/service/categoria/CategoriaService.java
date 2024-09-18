@@ -18,7 +18,7 @@ public class CategoriaService implements ICategoriaService {
 
     @Override
     public Categoria addCategoria(Categoria categoria) {
-        return Optional.of(categoria).filter(c -> !categoriaRepositorio.existeByNome(c.getNome()))
+        return Optional.of(categoria).filter(c -> !categoriaRepositorio.getCategoriaByNome(c.getNome()))
                 .map(categoriaRepositorio :: save)
                 .orElseThrow(() -> new ExistenteException(categoria.getNome()+"Já existe essa categoria."));
     }

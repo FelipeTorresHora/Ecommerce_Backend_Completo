@@ -9,5 +9,5 @@ import java.util.List;
 public interface CategoriaRepositorio extends JpaRepository<Categoria, Long> {
     Categoria findByNome(String nome);
 
-    boolean existeByNome(String name);
+    boolean getCategoriaByNome(String name);
 }
