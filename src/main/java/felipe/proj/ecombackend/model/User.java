@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
-
+import java.util.List;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -25,6 +25,9 @@ public class User {
     @NaturalId
     private String email;
     private String senha;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade =
             {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})

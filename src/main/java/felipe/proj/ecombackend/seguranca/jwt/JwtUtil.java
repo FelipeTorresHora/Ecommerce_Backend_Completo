@@ -16,7 +16,11 @@ import java.util.List;
 
 @Component
 public class JwtUtil {
+
+    @Value("${auth.token.jwtSecret}")
     private String jwtSecret;
+
+    @Value("${auth.token.expirationInMils}")
     private int expirationTime;
 
     public String generateTokenForUser(Authentication authentication) {
@@ -60,6 +64,3 @@ public class JwtUtil {
         }
     }
 }
-
-
-//jwt pode está errado
