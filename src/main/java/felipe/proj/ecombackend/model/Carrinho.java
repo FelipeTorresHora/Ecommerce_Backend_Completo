@@ -48,6 +48,7 @@ public class Carrinho {
             return precoUnitario.multiply(BigDecimal.valueOf(item.getQuantidade()));
         }).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
+
     public void clearCarrinho(){
         this.items.clear();
         updateMontanteTotal();
