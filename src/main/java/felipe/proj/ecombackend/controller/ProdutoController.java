@@ -87,7 +87,7 @@ public class ProdutoController {
         }
     }
 
-    @DeleteMapping ("/{produtoId}/update")
+    @DeleteMapping ("/{produtoId}/delete")
     public ResponseEntity<ApiResponse> deleteProduto(@PathVariable Long produtoId){
         try {
             produtoService.deleteProduto(produtoId);

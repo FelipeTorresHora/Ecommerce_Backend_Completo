@@ -25,13 +25,13 @@ public class CarrinhoItemController {
 
     @PostMapping("/item/add")
     public ResponseEntity<ApiResponse> addItemToCarrinho(
-            @RequestParam Long productId,
-            @RequestParam Integer quantity) {
+            @RequestParam Long produtoId,
+            @RequestParam Integer quantidade) {
         try {
             User user = userService.getAuthenticatedUser();
             Carrinho carrinho= carrinhoService.initializeNewCarrinho(user);
-            carrinhoItemService.addItemCarrinho(carrinho.getId(), productId, quantity);
-            return ResponseEntity.ok(new ApiResponse("Item added to carrinho successfully", null));
+            carrinhoItemService.addItemCarrinho(carrinho.getId(), produtoId, quantidade);
+            return ResponseEntity.ok(new ApiResponse("Item adcionado ao carrinho", null));
         } catch (ProcuraNaoEncontrada e) {
             return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
         }catch (JwtException e){
@@ -43,7 +43,7 @@ public class CarrinhoItemController {
     public ResponseEntity<ApiResponse> removeItemFromCarrinho(@PathVariable Long carrinhoId, @PathVariable Long itemId) {
         try {
             carrinhoItemService.removeItemCarrinho(carrinhoId, itemId);
-            return ResponseEntity.ok(new ApiResponse("Remove Item Success", null));
+            return ResponseEntity.ok(new ApiResponse("Item removido do carrinho", null));
         } catch (ProcuraNaoEncontrada e) {
             return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
         }
@@ -51,11 +51,11 @@ public class CarrinhoItemController {
 
     @PutMapping("/carrinho/{carrinhoId}/item/{itemId}/update")
     public  ResponseEntity<ApiResponse> updateItemQuantity(@PathVariable Long carrinhoId,
-                                                           @PathVariable Long itemId,
-                                                           @RequestParam Integer quantity) {
+                                                           @PathVariable Long produtoId,
+                                                           @RequestParam Integer quantidade) {
         try {
-            carrinhoItemService.updateItemQuantidade(carrinhoId, itemId, quantity);
-            return ResponseEntity.ok(new ApiResponse("Update Item Success", null));
+            carrinhoItemService.updateItemQuantidade(carrinhoId, produtoId, quantidade);
+            return ResponseEntity.ok(new ApiResponse("Item atualizado!", null));
         } catch (ProcuraNaoEncontrada e) {
             return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
         }

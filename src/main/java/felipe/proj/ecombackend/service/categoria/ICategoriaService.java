@@ -1,8 +1,6 @@
 package felipe.proj.ecombackend.service.categoria;
 
 import felipe.proj.ecombackend.model.Categoria;
-
-
 import java.util.List;
 
 public interface ICategoriaService {

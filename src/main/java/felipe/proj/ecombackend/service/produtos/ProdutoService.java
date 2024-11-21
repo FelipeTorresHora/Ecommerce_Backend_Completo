@@ -42,6 +42,7 @@ public class ProdutoService implements IProdutoService {
                 categoria
         );
     }
+
     @Override
     public Produto updateProduto(UpdateProdutoRequest request, Long produtoId) {
         return produtoRepositorio.findById(produtoId)

@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CarrinhoItemRepositorio extends JpaRepository<CarrinhoItem, Long> {
     void deleteAllByCarrinhoId(Long id);
-    List<CarrinhoItem> findByProductId(Long productId);
+    List<CarrinhoItem> findByProdutoId(Long productId);
 }

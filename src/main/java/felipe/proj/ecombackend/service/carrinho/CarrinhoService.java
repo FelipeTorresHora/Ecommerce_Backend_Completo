@@ -1,6 +1,5 @@
 package felipe.proj.ecombackend.service.carrinho;
 
-
 import felipe.proj.ecombackend.dto.CarrinhoDto;
 import felipe.proj.ecombackend.excecao.ProcuraNaoEncontrada;
 import felipe.proj.ecombackend.model.Carrinho;
@@ -15,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 @RequiredArgsConstructor
