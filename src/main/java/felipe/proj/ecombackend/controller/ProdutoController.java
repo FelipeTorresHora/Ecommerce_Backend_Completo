@@ -88,7 +88,7 @@ public class ProdutoController {
     }
 
     @DeleteMapping ("/{produtoId}/delete")
-    public ResponseEntity<ApiResponse> deleteProduto(@PathVariable Long produtoId){
+    public ResponseEntity<ApiResponse> deleteProduto(@RequestParam @PathVariable Long produtoId){
         try {
             produtoService.deleteProduto(produtoId);
             return ResponseEntity.ok(new ApiResponse("Produto deletado com sucesso: ", produtoId));

@@ -23,7 +23,7 @@ public class Produto {
     private int inventario;
     private String descricao;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
